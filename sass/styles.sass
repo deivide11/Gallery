@@ -1,2 +1,65 @@
-div
-    background: red
+@use 'variables'
+@use 'mixins'
+
+*
+    // font-family: 
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body
+    background-color: variables.$bg-color
+    color: variables.$text-color
+
+    a
+        color: variables.$text-color
+        text-decoration: none
+        transition: .4s
+
+    ul
+        list-style: none
+
+.header
+    display: flex
+    justify-content: space-between
+    @include mixins.container
+
+    &-brand // &-brand vai ser traduzido como: .header-brand
+        color: variables.$primary-color
+        font-size: 3rem
+
+    &-navbar // fica como: .header-navbar
+        ul
+            height: 100%
+            @include mixins.flex-center
+
+            li
+                margin: 0 1rem
+                text-transform: uppercase
+                font-size: .8rem
+
+                .active
+                    color: variables.$secondary-color
+
+                a
+                    &:hover
+                        color: variables.$secondary-color
+
+    &-social-media
+        ul
+            height: 100%
+            @include mixins.flex-center
+
+            li
+                margin: 0 16px
+
+                a
+                    &:hover
+                        color: variables.$primary-color
+
+.gallery
+    @include mixins.flex-center
+    @include mixins.container
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 0
