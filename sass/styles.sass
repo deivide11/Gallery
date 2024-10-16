@@ -63,3 +63,31 @@ body
     flex-wrap: wrap
     justify-content: space-between
     padding: 0
+
+    &-card // gera .gallery-card
+        width: 31%
+        height: 25rem
+        margin-bottom: 4%
+
+        &-title
+            font-size: 2rem
+            font-weight: 300
+            margin-bottom: 1rem
+
+        &-btn
+            padding: .6rem 32px
+            border: 2px solid variables.$primary-color
+            color: variables.$primary-color
+            font-weight: 400
+            text-transform: uppercase
+            letter-spacing: 1px
+
+            &:hover
+                background-color: variables.$primary-color
+                color: variables.$bg-color
+    
+    #card-1
+        @include mixins.bg-img('')
+    
+    #card-2
+        @include mixins.bg-img('')
