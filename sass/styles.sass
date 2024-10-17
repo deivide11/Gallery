@@ -2,7 +2,7 @@
 @use 'mixins'
 
 *
-    // font-family: 
+    font-family: 'Montserrat'
     padding: 0
     margin: 0
     box-sizing: border-box
@@ -24,6 +24,11 @@ body
     justify-content: space-between
     @include mixins.container
 
+    @include mixins.mobile
+        padding: 1.1rem
+
+    
+
     &-brand // &-brand vai ser traduzido como: .header-brand
         color: variables.$primary-color
         font-size: 3rem
@@ -32,6 +37,9 @@ body
         ul
             height: 100%
             @include mixins.flex-center
+            
+            @include mixins.mobile
+                display: none
 
             li
                 margin: 0 1rem
@@ -50,12 +58,18 @@ body
             height: 100%
             @include mixins.flex-center
 
+            @include mixins.mobile
+                display: none
+
             li
                 margin: 0 16px
 
                 a
                     &:hover
                         color: variables.$primary-color
+
+            .bx
+                font-size: 23px
 
 .gallery
     @include mixins.flex-center
@@ -64,10 +78,20 @@ body
     justify-content: space-between
     padding: 0
 
+    @include mixins.mobile
+        flex-direction: column
+
     &-card // gera .gallery-card
         width: 31%
         height: 25rem
         margin-bottom: 4%
+        @include mixins.flex-center
+        flex-direction: column
+        color: variables.$primary-color
+
+        @include mixins.mobile
+            width: 90%
+            margin-bottom: 6%
 
         &-title
             font-size: 2rem
@@ -87,7 +111,27 @@ body
                 color: variables.$bg-color
     
     #card-1
-        @include mixins.bg-img('')
+        @include mixins.bg-img('animals.jpg')
     
     #card-2
-        @include mixins.bg-img('')
+        @include mixins.bg-img('landscape.jpg')
+
+    #card-3
+        @include mixins.bg-img('art.jpg')
+
+    #card-4
+        @include mixins.bg-img('decorations.jpg')
+    
+    #card-5
+        @include mixins.bg-img('sports.jpg')
+
+    #card-6
+        @include mixins.bg-img('nature.jpg')
+
+footer
+    text-align: center
+    padding-bottom: 2rem
+
+    span
+        font-weight: bold
+        color: variables.$secondary-color

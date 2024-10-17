@@ -11,4 +11,18 @@
     justify-content: center
 
 @mixin bg-img($img)
-    background-image: url('../img') // imagem dinamica 
+    background-image: url('../img/#{$img}') // imagem dinamica 
+    background-size: 100%
+    background-position: center
+    background-repeat: no-repeat
+    filter: grayscale(100%) // deixa preto e branco
+    transition: .6s
+
+    &:hover
+        background-size: 110%
+        filter: grayscale(0%)
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/#{$img}')
+
+@mixin mobile
+    @media(max-width: 425px)
+        @content
